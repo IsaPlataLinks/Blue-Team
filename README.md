@@ -842,4 +842,972 @@ Repositório criado para documentar minha jornada de aprendizado em Blue Team, D
   - [ ] Account compromise
 
 -----
+## FASE 5: HARDENING E SECURE CONFIGURATION (CONTINUAÇÃO)
 
+#### Windows Hardening (continuação)
+
+- [ ] **Windows Firewall** (continuação)
+  - [ ] Default deny inbound
+  - [ ] Logging enabled
+- [ ] **UAC (User Account Control)**
+  - [ ] Enabled e configurado corretamente
+- [ ] **Remote Desktop**
+  - [ ] Network Level Authentication (NLA)
+  - [ ] Limited users
+  - [ ] Strong passwords
+
+#### Linux Hardening
+
+- [ ] **User Management**
+  - [ ] Disable root login via SSH
+  - [ ] Sudo configuration
+  - [ ] Remove unnecessary users
+- [ ] **SSH Hardening**
+  - [ ] Key-based authentication only
+  - [ ] Disable password auth
+  - [ ] Change default port (opcional)
+  - [ ] Fail2ban implementation
+- [ ] **Firewall**
+  - [ ] iptables/nftables
+  - [ ] UFW (Uncomplicated Firewall)
+  - [ ] Default deny policy
+- [ ] **SELinux/AppArmor**
+  - [ ] Mandatory Access Control
+  - [ ] Policy configuration
+- [ ] **File Permissions**
+  - [ ] Least privilege
+  - [ ] SUID/SGID audit
+  - [ ] Remove world-writable files
+- [ ] **Services**
+  - [ ] Disable unnecessary services
+  - [ ] systemctl list-units
+- [ ] **Updates e Patching**
+  - [ ] Automated security updates
+  - [ ] unattended-upgrades (Debian/Ubuntu)
+
+#### Active Directory Hardening
+
+- [ ] **Account Policies**
+  - [ ] Complex passwords
+  - [ ] Account lockout policies
+  - [ ] Kerberos policies
+- [ ] **Group Policy**
+  - [ ] Least privilege
+  - [ ] Restricted groups
+  - [ ] Software restriction policies
+- [ ] **Admin Accounts**
+  - [ ] Separate admin accounts
+  - [ ] PAW (Privileged Access Workstations)
+  - [ ] Tiered administration model
+- [ ] **LAPS (Local Administrator Password Solution)**
+  - [ ] Randomize local admin passwords
+  - [ ] Centralized management
+- [ ] **Kerberos**
+  - [ ] Enable AES encryption
+  - [ ] Disable DES, RC4
+  - [ ] Monitor for delegation issues
+- [ ] **LDAP**
+  - [ ] LDAP signing
+  - [ ] LDAP channel binding
+- [ ] **SMB**
+  - [ ] SMB signing enabled
+  - [ ] Disable SMBv1
+- [ ] **Attack Surface Reduction**
+  - [ ] Disable LLMNR/NBT-NS
+  - [ ] Disable WPAD
+  - [ ] Protected Users group
+  - [ ] Credential Guard
+
+### Network Hardening
+
+- [ ] **Network Segmentation**
+  - [ ] VLANs
+  - [ ] DMZ (Demilitarized Zone)
+  - [ ] Perimeter defense
+  - [ ] Zero Trust Network Access
+- [ ] **Access Control**
+  - [ ] ACLs (Access Control Lists)
+  - [ ] MAC-based port security
+  - [ ] 802.1X (NAC - Network Access Control)
+- [ ] **Switch Security**
+  - [ ] Port security
+  - [ ] DHCP snooping
+  - [ ] Dynamic ARP Inspection
+  - [ ] Disable unused ports
+- [ ] **Wireless Security**
+  - [ ] WPA3 (ou WPA2-Enterprise)
+  - [ ] Disable WPS
+  - [ ] Hidden SSID (security by obscurity - limited)
+  - [ ] MAC filtering (complementar)
+  - [ ] Guest network isolation
+- [ ] **VPN Security**
+  - [ ] Strong encryption
+  - [ ] MFA
+  - [ ] Split tunneling policy
+
+### Application Hardening
+
+- [ ] **Web Servers**
+  - [ ] Disable unnecessary modules
+  - [ ] HTTPS only (TLS 1.2+)
+  - [ ] Security headers (CSP, HSTS, X-Frame-Options)
+  - [ ] Remove server banners
+- [ ] **Databases**
+  - [ ] Least privilege users
+  - [ ] Encrypted connections
+  - [ ] Disable remote root
+  - [ ] Regular backups
+- [ ] **Containers**
+  - [ ] Run as non-root
+  - [ ] Read-only filesystems
+  - [ ] Resource limits
+  - [ ] Image scanning (Trivy, Clair)
+
+### Patch Management
+
+- [ ] **Vulnerability Assessment**
+  - [ ] Regular scans
+  - [ ] Nessus, OpenVAS, Qualys
+- [ ] **Patch Prioritization**
+  - [ ] Critical patches first
+  - [ ] CVSS scoring
+  - [ ] Exploit availability
+- [ ] **Testing**
+  - [ ] Test environment
+  - [ ] Rollback plan
+- [ ] **Deployment**
+  - [ ] Automated tools (WSUS, SCCM)
+  - [ ] Maintenance windows
+
+### Backup e Recovery
+
+- [ ] **Backup Strategy**
+  - [ ] 3-2-1 rule
+    - 3 copies
+    - 2 different media
+    - 1 offsite
+  - [ ] Full, incremental, differential
+- [ ] **Testing Restores**
+  - [ ] Regular restore tests
+  - [ ] RTO (Recovery Time Objective)
+  - [ ] RPO (Recovery Point Objective)
+- [ ] **Ransomware Protection**
+  - [ ] Immutable backups
+  - [ ] Air-gapped backups
+  - [ ] Backup encryption
+
+### Prática
+
+- [ ] **CIS Benchmarks**
+  - [ ] Download benchmarks
+  - [ ] Apply to lab systems
+  - [ ] CIS-CAT tool
+- [ ] **STIGs (Security Technical Implementation Guides)**
+  - [ ] DISA STIGs
+  - [ ] Apply guidelines
+- [ ] **Criar Hardening Checklist**
+  - [ ] Windows Server
+  - [ ] Linux Server
+  - [ ] Network devices
+
+-----
+
+## FASE 6: VULNERABILITY MANAGEMENT
+
+**Período**: 17 a 20 meses  
+**Status**: Planejado
+
+### Vulnerability Assessment
+
+#### Conceitos
+
+- [ ] **Vulnerability**
+  - [ ] Weakness que pode ser explorada
+  - [ ] CVE (Common Vulnerabilities and Exposures)
+- [ ] **Exposure**
+  - [ ] Misconfiguration
+  - [ ] Não é bug de software
+- [ ] **Risk**
+  - [ ] Likelihood x Impact
+- [ ] **CVSS (Common Vulnerability Scoring System)**
+  - [ ] Base score (0-10)
+  - [ ] Temporal score
+  - [ ] Environmental score
+  - [ ] v2 vs v3 vs v4
+- [ ] **Vulnerability Lifecycle**
+  - [ ] Discovery
+  - [ ] Disclosure
+  - [ ] Patch availability
+  - [ ] Patch deployment
+  - [ ] Verification
+
+#### Vulnerability Scanners
+
+- [ ] **Nessus**
+  - [ ] Tenable’s scanner
+  - [ ] Professional vs Essentials
+  - [ ] Policy creation
+  - [ ] Authenticated vs unauthenticated scans
+- [ ] **OpenVAS**
+  - [ ] Open-source
+  - [ ] Greenbone Security Manager
+- [ ] **Qualys**
+  - [ ] Cloud-based
+  - [ ] VMDR (Vulnerability Management, Detection, Response)
+- [ ] **Rapid7 Nexpose/InsightVM**
+- [ ] **Configuration Assessment**
+  - [ ] CIS-CAT
+  - [ ] Microsoft Security Compliance Toolkit
+
+#### Scan Types
+
+- [ ] **Network Scans**
+  - [ ] External perimeter
+  - [ ] Internal network
+- [ ] **Authenticated Scans**
+  - [ ] Credentialed
+  - [ ] Deeper visibility
+- [ ] **Web Application Scans**
+  - [ ] OWASP ZAP
+  - [ ] Burp Suite Scanner
+  - [ ] Nikto, Acunetix
+- [ ] **Container Scans**
+  - [ ] Trivy
+  - [ ] Clair
+  - [ ] Anchore
+- [ ] **Cloud Scans**
+  - [ ] ScoutSuite
+  - [ ] Prowler (AWS)
+  - [ ] Native tools (AWS Inspector, Azure Defender)
+
+### Vulnerability Management Process
+
+- [ ] **1. Discovery/Identification**
+  - [ ] Asset inventory
+  - [ ] Scanning
+- [ ] **2. Prioritization**
+  - [ ] CVSS score
+  - [ ] Exploit availability
+  - [ ] Asset criticality
+  - [ ] Compensating controls
+- [ ] **3. Remediation**
+  - [ ] Patching
+  - [ ] Configuration changes
+  - [ ] Workarounds
+- [ ] **4. Verification**
+  - [ ] Rescan
+  - [ ] Validate fix
+- [ ] **5. Reporting**
+  - [ ] Executive summaries
+  - [ ] Technical details
+  - [ ] Trend analysis
+
+### Asset Management
+
+- [ ] **Inventory**
+  - [ ] Hardware inventory
+  - [ ] Software inventory
+  - [ ] Cloud resources
+  - [ ] CMDB (Configuration Management Database)
+- [ ] **Asset Classification**
+  - [ ] Critical, High, Medium, Low
+  - [ ] Data sensitivity
+- [ ] **Lifecycle Management**
+  - [ ] Procurement
+  - [ ] Deployment
+  - [ ] Maintenance
+  - [ ] Decommission
+
+### Compliance Scanning
+
+- [ ] **Compliance Frameworks**
+  - [ ] PCI DSS
+  - [ ] HIPAA
+  - [ ] SOX
+  - [ ] GDPR/LGPD
+  - [ ] ISO 27001
+- [ ] **Compliance Tools**
+  - [ ] Nessus compliance modules
+  - [ ] OpenSCAP
+  - [ ] Cloud compliance tools
+
+### Prática
+
+- [ ] **Instalar Nessus Essentials**
+  - [ ] Scan de lab environment
+  - [ ] Análise de resultados
+- [ ] **OpenVAS**
+  - [ ] Setup e scanning
+- [ ] **Trivy**
+  - [ ] Container image scanning
+- [ ] **Criar Vulnerability Management Program**
+  - [ ] Policies e procedures
+  - [ ] SLA para remediation
+  - [ ] Reporting templates
+
+-----
+
+## FASE 7: SECURITY OPERATIONS CENTER (SOC)
+
+**Período**: 20 a 22 meses  
+**Status**: Avançado
+
+### SOC Fundamentals
+
+#### SOC Tiers
+
+- [ ] **Tier 1: Analyst (Triage)**
+  - [ ] Alert monitoring
+  - [ ] Initial triage
+  - [ ] Ticket creation
+  - [ ] Escalation
+- [ ] **Tier 2: Incident Responder**
+  - [ ] Deep investigation
+  - [ ] Incident handling
+  - [ ] Threat hunting
+- [ ] **Tier 3: Subject Matter Expert**
+  - [ ] Advanced threats
+  - [ ] Malware analysis
+  - [ ] Tool tuning
+- [ ] **SOC Manager**
+  - [ ] Team leadership
+  - [ ] Metrics and reporting
+  - [ ] Process improvement
+
+#### SOC Metrics e KPIs
+
+- [ ] **Detection Metrics**
+  - [ ] MTTD (Mean Time To Detect)
+  - [ ] Alert volume
+  - [ ] True positive rate
+  - [ ] False positive rate
+- [ ] **Response Metrics**
+  - [ ] MTTR (Mean Time To Respond)
+  - [ ] MTTC (Mean Time To Contain)
+  - [ ] Incident resolution time
+- [ ] **Operational Metrics**
+  - [ ] Ticket volume
+  - [ ] SLA compliance
+  - [ ] Escalation rate
+
+### SOC Tools Stack
+
+- [ ] **SIEM** (já coberto em Fase 3)
+- [ ] **SOAR** (Security Orchestration, Automation, Response)
+  - [ ] Automated workflows
+  - [ ] Playbook execution
+  - [ ] Integration hub
+  - [ ] Platforms: Splunk SOAR, Cortex XSOAR, TheHive
+- [ ] **Ticketing/Case Management**
+  - [ ] JIRA
+  - [ ] ServiceNow
+  - [ ] TheHive
+- [ ] **Threat Intelligence Platforms**
+  - [ ] MISP
+  - [ ] ThreatConnect
+  - [ ] Anomali
+- [ ] **Sandbox**
+  - [ ] ANY.RUN
+  - [ ] Joe Sandbox
+  - [ ] Cuckoo
+- [ ] **EDR** (já coberto)
+- [ ] **NDR (Network Detection and Response)**
+  - [ ] Darktrace
+  - [ ] Vectra
+  - [ ] ExtraHop
+- [ ] **Email Security**
+  - [ ] Proofpoint
+  - [ ] Mimecast
+  - [ ] Microsoft Defender for Office 365
+- [ ] **UEBA (User and Entity Behavior Analytics)**
+  - [ ] Exabeam
+  - [ ] Splunk UBA
+  - [ ] Microsoft Sentinel UEBA
+
+### Alert Triage
+
+- [ ] **Triage Process**
+
+1. Alert received
+1. Initial assessment
+1. Context gathering
+1. Determine true/false positive
+1. Escalate or close
+
+- [ ] **Context Gathering**
+  - [ ] User information
+  - [ ] Asset information
+  - [ ] Historical activity
+  - [ ] Threat intelligence
+  - [ ] Related alerts
+- [ ] **Common Alert Types**
+  - [ ] Malware detection
+  - [ ] Suspicious authentication
+  - [ ] Data exfiltration
+  - [ ] Policy violation
+  - [ ] Network anomaly
+
+### Threat Intelligence
+
+- [ ] **Intelligence Types**
+  - [ ] Strategic (high-level trends)
+  - [ ] Tactical (TTPs)
+  - [ ] Operational (campaigns)
+  - [ ] Technical (IOCs)
+- [ ] **IOCs (Indicators of Compromise)**
+  - [ ] IP addresses
+  - [ ] Domain names
+  - [ ] File hashes
+  - [ ] URLs
+  - [ ] Email addresses
+  - [ ] Registry keys
+- [ ] **Threat Feeds**
+  - [ ] Commercial feeds
+  - [ ] Open-source (AlienVault OTX, [Abuse.ch](http://Abuse.ch))
+  - [ ] ISACs/ISAOs
+  - [ ] Government (CISA)
+- [ ] **Threat Intelligence Platforms**
+  - [ ] MISP (Malware Information Sharing Platform)
+  - [ ] OpenCTI
+  - [ ] ThreatConnect
+
+### SOC Automation (SOAR)
+
+- [ ] **Use Cases**
+  - [ ] Phishing triage
+  - [ ] Malware analysis
+  - [ ] Enrichment automation
+  - [ ] Ticket creation
+  - [ ] Containment actions
+- [ ] **Playbooks**
+  - [ ] Automated workflows
+  - [ ] Decision trees
+  - [ ] Human approval gates
+- [ ] **Integration**
+  - [ ] SIEM
+  - [ ] EDR
+  - [ ] Firewall
+  - [ ] Active Directory
+  - [ ] Ticketing
+
+### Communication
+
+- [ ] **Stakeholder Communication**
+  - [ ] Management
+  - [ ] IT teams
+  - [ ] Legal
+  - [ ] PR/Communications
+- [ ] **Reporting**
+  - [ ] Daily briefings
+  - [ ] Weekly reports
+  - [ ] Monthly metrics
+  - [ ] Executive summaries
+- [ ] **Incident Notification**
+  - [ ] Escalation procedures
+  - [ ] Contact lists
+  - [ ] Communication templates
+
+### Prática
+
+- [ ] **Boss of the SOC (BOTS)**
+  - [ ] Splunk CTF dataset
+- [ ] **CyberDefenders**
+  - [ ] SOC challenges
+- [ ] **TryHackMe**
+  - [ ] SOC Level 1 Path (completo)
+  - [ ] SOC Level 2 Path
+- [ ] **Security Blue Team**
+  - [ ] BTL1 certification prep
+- [ ] **Simular Shift SOC**
+  - [ ] Monitor lab SIEM
+  - [ ] Criar e resolver tickets
+
+-----
+
+## FASE 8: GOVERNANCE, RISK & COMPLIANCE (GRC)
+
+**Período**: 22 a 24 meses  
+**Status**: Especialização
+
+### Governance
+
+- [ ] **Security Policies**
+  - [ ] Acceptable Use Policy (AUP)
+  - [ ] Password policy
+  - [ ] Data classification policy
+  - [ ] Incident response policy
+  - [ ] Change management policy
+- [ ] **Security Standards**
+  - [ ] Technical standards
+  - [ ] Configuration baselines
+  - [ ] Naming conventions
+- [ ] **Procedures**
+  - [ ] Step-by-step instructions
+  - [ ] Runbooks
+- [ ] **Guidelines**
+  - [ ] Recommendations
+  - [ ] Best practices
+
+### Risk Management
+
+- [ ] **Risk Assessment Process**
+
+1. Asset identification
+1. Threat identification
+1. Vulnerability identification
+1. Risk analysis
+1. Risk evaluation
+1. Risk treatment
+
+- [ ] **Risk Analysis Methods**
+  - [ ] Qualitative (Low/Med/High)
+  - [ ] Quantitative (financial)
+  - [ ] Semi-quantitative
+- [ ] **Risk Treatment Options**
+  - [ ] Accept
+  - [ ] Mitigate
+  - [ ] Transfer (insurance)
+  - [ ] Avoid
+- [ ] **Risk Metrics**
+  - [ ] ALE (Annual Loss Expectancy)
+  - [ ] SLE (Single Loss Expectancy)
+  - [ ] ARO (Annual Rate of Occurrence)
+  - [ ] ALE = SLE x ARO
+- [ ] **Risk Register**
+  - [ ] Document identified risks
+  - [ ] Risk owners
+  - [ ] Mitigation status
+
+### Compliance Frameworks
+
+#### ISO 27001/27002
+
+- [ ] **ISO 27001**
+  - [ ] ISMS (Information Security Management System)
+  - [ ] Certification process
+  - [ ] Annex A controls (114 controls)
+- [ ] **Control Categories**
+  - [ ] Organizational controls
+  - [ ] People controls
+  - [ ] Physical controls
+  - [ ] Technological controls
+
+#### NIST Frameworks
+
+- [ ] **NIST Cybersecurity Framework (CSF)**
+  - [ ] Identify
+  - [ ] Protect
+  - [ ] Detect
+  - [ ] Respond
+  - [ ] Recover
+- [ ] **NIST 800-53**
+  - [ ] Security controls for federal systems
+  - [ ] Control families (AC, AU, CA, CM, etc)
+- [ ] **NIST 800-171**
+  - [ ] Protecting CUI (Controlled Unclassified Information)
+
+#### CIS Controls
+
+- [ ] **CIS Critical Security Controls**
+  - [ ] 18 controls
+  - [ ] Implementation Groups (IG1, IG2, IG3)
+  - [ ] Prioritized approach
+- [ ] **Key Controls**
+  - [ ] Inventory and control of assets
+  - [ ] Continuous vulnerability management
+  - [ ] Controlled use of administrative privileges
+  - [ ] Secure configuration
+  - [ ] Account monitoring and control
+
+#### Industry-Specific
+
+- [ ] **PCI DSS** (Payment Card Industry)
+  - [ ] 12 requirements
+  - [ ] Protect cardholder data
+  - [ ] Quarterly scans (ASV)
+- [ ] **HIPAA** (Healthcare)
+  - [ ] PHI (Protected Health Information)
+  - [ ] Privacy Rule
+  - [ ] Security Rule
+  - [ ] Breach Notification Rule
+- [ ] **SOX** (Sarbanes-Oxley)
+  - [ ] Financial reporting
+  - [ ] IT controls
+- [ ] **GDPR** (General Data Protection Regulation - Europe)
+  - [ ] Personal data protection
+  - [ ] Right to be forgotten
+  - [ ] Breach notification (72 hours)
+- [ ] **LGPD** (Lei Geral de Proteção de Dados - Brasil)
+  - [ ] Similar to GDPR
+  - [ ] ANPD (Autoridade Nacional)
+
+### Audit e Assessment
+
+- [ ] **Internal Audit**
+  - [ ] Self-assessment
+  - [ ] Control testing
+  - [ ] Findings and recommendations
+- [ ] **External Audit**
+  - [ ] Third-party auditors
+  - [ ] Certification audits
+  - [ ] Compliance verification
+- [ ] **Penetration Testing**
+  - [ ] Authorized testing
+  - [ ] White/Gray/Black box
+  - [ ] Rules of engagement
+- [ ] **Vulnerability Assessment** (já coberto)
+
+### Business Continuity & Disaster Recovery
+
+- [ ] **BCP (Business Continuity Plan)**
+  - [ ] Ensure business operations continue
+  - [ ] Alternative work locations
+  - [ ] Communication plans
+- [ ] **DRP (Disaster Recovery Plan)**
+  - [ ] IT system recovery
+  - [ ] Backup and restore
+  - [ ] Failover procedures
+- [ ] **Testing**
+  - [ ] Tabletop exercises
+  - [ ] Simulations
+  - [ ] Full failover tests
+- [ ] **Metrics**
+  - [ ] RTO (Recovery Time Objective)
+  - [ ] RPO (Recovery Point Objective)
+  - [ ] MTBF (Mean Time Between Failures)
+
+### Third-Party Risk Management
+
+- [ ] **Vendor Assessment**
+  - [ ] Security questionnaires
+  - [ ] SOC 2 reports
+  - [ ] Onsite assessments
+- [ ] **Contracts**
+  - [ ] Security requirements
+  - [ ] SLAs
+  - [ ] Right to audit
+- [ ] **Ongoing Monitoring**
+  - [ ] Annual reassessment
+  - [ ] Incident notification requirements
+
+### Prática
+
+- [ ] **Study ISO 27001**
+  - [ ] Read standard (ISO/IEC 27001:2022)
+  - [ ] Review Annex A
+- [ ] **NIST CSF**
+  - [ ] Framework documentation
+  - [ ] Apply to lab/project
+- [ ] **CIS Controls**
+  - [ ] Implementation guide
+  - [ ] CIS-CAT assessment
+- [ ] **Create GRC Documentation**
+  - [ ] Sample security policy
+  - [ ] Risk assessment template
+  - [ ] Compliance checklist
+
+-----
+
+## CERTIFICAÇÕES (CAMINHO RECOMENDADO)
+
+### Entry Level (0-6 meses)
+
+- [ ] **CompTIA A+**
+  - Custo: ~$250 por exam (2 exams)
+  - Foco: IT fundamentals, hardware, OS
+- [ ] **CompTIA Network+**
+  - Custo: ~$350
+  - Foco: Networking fundamentals
+- [ ] **CompTIA Security+**
+  - Custo: ~$400
+  - Foco: Security fundamentals
+  - **RECOMENDADA** - Entry point para InfoSec
+
+### Intermediate (6-18 meses)
+
+- [ ] **CompTIA CySA+** (Cybersecurity Analyst)
+  - Custo: ~$400
+  - Foco: Threat detection, SOC operations
+- [ ] **Security Blue Team Level 1 (BTL1)**
+  - Custo: ~$400
+  - Foco: Hands-on Blue Team skills
+- [ ] **CompTIA CASP+** (Advanced Security Practitioner)
+  - Custo: ~$500
+  - Foco: Enterprise security architect
+
+### Advanced (18-24 meses)
+
+- [ ] **GCIH** (GIAC Certified Incident Handler)
+  - Custo: ~$2500 (exam only) ou ~$8000 (com curso SANS)
+  - Foco: Incident response
+- [ ] **GCFA** (GIAC Certified Forensic Analyst)
+  - Custo: ~$2500
+  - Foco: Digital forensics
+- [ ] **GCIA** (GIAC Certified Intrusion Analyst)
+  - Custo: ~$2500
+  - Foco: Network traffic analysis, IDS
+- [ ] **GSEC** (GIAC Security Essentials)
+  - Custo: ~$2000
+  - Foco: Security fundamentals (mais avançado que Sec+)
+
+### Management/GRC (18+ meses)
+
+- [ ] **CISSP** (Certified Information Systems Security Professional)
+  - Custo: ~$750
+  - Requisito: 5 anos experiência (waiver possível)
+  - Foco: Broad security knowledge, management
+- [ ] **CISM** (Certified Information Security Manager)
+  - Custo: ~$750
+  - Foco: Security management, governance
+- [ ] **CISA** (Certified Information Systems Auditor)
+  - Custo: ~$760
+  - Foco: IT audit, compliance
+- [ ] **CRISC** (Certified in Risk and Information Systems Control)
+  - Custo: ~$760
+  - Foco: Risk management
+
+### Specialized
+
+- [ ] **CCNA Cyber Ops**
+  - Custo: ~$300
+  - Foco: Cisco SOC operations
+- [ ] **Azure Security Engineer Associate**
+  - Custo: ~$165
+  - Foco: Azure security
+- [ ] **AWS Certified Security - Specialty**
+  - Custo: ~$300
+  - Foco: AWS security
+
+-----
+
+## PLATAFORMAS DE PRÁTICA
+
+### Iniciante (0-6 meses)
+
+- [ ] **TryHackMe**
+  - Pre Security Path
+  - Introduction to Cybersecurity
+  - SOC Level 1 Path
+  - Custo: ~$10/mês Premium
+- [ ] **Blue Team Labs Online**
+  - Free challenges
+  - Investigations
+  - Custo: Free tier ou ~$15/mês
+- [ ] **CyberDefenders**
+  - Blue Team CTFs
+  - DFIR challenges
+  - Free
+- [ ] **LetsDefend**
+  - SOC Analyst training
+  - Hands-on incidents
+  - Custo: Free tier ou ~$20/mês
+
+### Intermediário (6-18 meses)
+
+- [ ] **Security Blue Team**
+  - BTL1 course content
+  - Hands-on labs
+  - Custo: ~$400 com certificação
+- [ ] **SANS Cyber Ranges**
+  - NetWars
+  - CyberCity
+  - Custo: Varia (geralmente em eventos)
+- [ ] **RangeForce**
+  - Enterprise training platform
+  - Custo: Geralmente corporativo
+
+### Avançado (18+ meses)
+
+- [ ] **HackTheBox**
+  - Sherlock (DFIR challenges)
+  - Forensics challenges
+  - Custo: ~$20/mês VIP
+- [ ] **CyberDefenders**
+  - Advanced challenges
+  - Malware analysis
+- [ ] **Boss of the SOC (BOTS)**
+  - Splunk CTF datasets
+  - Free
+
+-----
+
+## FERRAMENTAS ESSENCIAIS POR CATEGORIA
+
+### SIEM
+
+- [ ] Splunk (commercial)
+- [ ] Elastic Stack (open-source)
+- [ ] Wazuh (open-source)
+- [ ] Azure Sentinel (cloud)
+- [ ] IBM QRadar (enterprise)
+
+### Log Analysis
+
+- [ ] Splunk
+- [ ] ELK (Elasticsearch, Logstash, Kibana)
+- [ ] Graylog
+- [ ] Grep, awk, sed (CLI)
+
+### Network Monitoring
+
+- [ ] Wireshark
+- [ ] tshark / tcpdump
+- [ ] Zeek (Bro)
+- [ ] Suricata
+- [ ] NetworkMiner
+
+### Endpoint
+
+- [ ] Microsoft Defender for Endpoint
+- [ ] CrowdStrike Falcon
+- [ ] SentinelOne
+- [ ] Carbon Black
+- [ ] Wazuh (open-source)
+
+### IDS/IPS
+
+- [ ] Snort
+- [ ] Suricata
+- [ ] Zeek
+
+### Vulnerability Scanning
+
+- [ ] Nessus
+- [ ] OpenVAS
+- [ ] Qualys
+- [ ] Rapid7 Nexpose
+
+### Forensics
+
+- [ ] Volatility (memory)
+- [ ] Autopsy (disk)
+- [ ] FTK Imager
+- [ ] KAPE
+- [ ] Velociraptor
+
+### Malware Analysis
+
+- [ ] ANY.RUN (sandbox)
+- [ ] Joe Sandbox
+- [ ] Cuckoo Sandbox
+- [ ] VirusTotal
+- [ ] Hybrid-Analysis
+
+### Incident Response
+
+- [ ] TheHive
+- [ ] Velociraptor
+- [ ] GRR Rapid Response
+- [ ] OSQuery
+
+### Threat Intelligence
+
+- [ ] MISP
+- [ ] OpenCTI
+- [ ] ThreatConnect
+- [ ] AlienVault OTX
+
+### SOAR
+
+- [ ] Splunk SOAR (Phantom)
+- [ ] Cortex XSOAR (Palo Alto)
+- [ ] TheHive + Cortex
+- [ ] Shuffle (open-source)
+
+### Hardening/Config
+
+- [ ] CIS-CAT
+- [ ] Microsoft Security Compliance Toolkit
+- [ ] Lynis (Linux auditing)
+
+### Windows
+
+- [ ] Sysinternals Suite
+- [ ] Event Viewer
+- [ ] PowerShell
+- [ ] Windows Admin Center
+
+### Linux
+
+- [ ] journalctl
+- [ ] auditd
+- [ ] osquery
+- [ ] fail2ban
+
+-----
+
+## TIMELINE REALISTA
+
+**Total**: 24 meses de estudo dedicado
+
+|Fase  |Período  |Duração|Foco Principal                           |
+|------|---------|-------|-----------------------------------------|
+|Fase 1|Mês 1-3  |3 meses|Fundamentos IT e Segurança               |
+|Fase 2|Mês 3-6  |3 meses|Ameaças e Ataques                        |
+|Fase 3|Mês 6-10 |4 meses|Detecção e Monitoramento (SIEM, IDS, EDR)|
+|Fase 4|Mês 10-14|4 meses|Incident Response e Forensics            |
+|Fase 5|Mês 14-17|3 meses|Hardening e Secure Configuration         |
+|Fase 6|Mês 17-20|3 meses|Vulnerability Management                 |
+|Fase 7|Mês 20-22|2 meses|SOC Operations                           |
+|Fase 8|Mês 22-24|2 meses|GRC (Governance, Risk, Compliance)       |
+
+### Dedicação Sugerida
+
+**Dias úteis**: 2-3 horas/dia
+
+- 1h teoria
+- 1-2h prática (labs)
+
+**Fins de semana**: 4-6 horas/dia
+
+- Challenges
+- Lab setup
+- Documentação
+
+**Total semanal**: ~20 horas
+
+-----
+
+## MÉTRICAS DE PROGRESSO
+
+### Metas Mensais
+
+- [ ] Completar módulos/paths planejados
+- [ ] Resolver 5-10 challenges (BTL, CyberDefenders)
+- [ ] Documentar aprendizados
+- [ ] Atualizar lab environment
+
+### Metas Trimestrais
+
+- [ ] Completar certificação ou curso
+- [ ] Projeto prático (lab completo, análise de incidente)
+- [ ] Cheat sheets atualizados
+
+### Metas Anuais
+
+- [ ] **Ano 1**: CompTIA Security+ + CySA+ + Lab SIEM funcional + Incident response playbooks
+- [ ] **Ano 2**: BTL1/GCIH + Advanced SIEM skills + Portfolio completo + Pronto para SOC Analyst role
+
+-----
+
+## PRÓXIMOS PASSOS IMEDIATOS
+
+### Esta Semana
+
+- [ ] Completar TryHackMe: Introduction to Cybersecurity
+- [ ] Configurar VM Windows + Linux
+- [ ] Estudar: OSI Model
+- [ ] Praticar: Event Viewer (Windows)
+
+### Este Mês
+
+- [ ] TryHackMe: Pre Security Path
+- [ ] Estudar CIA Triad, AAA
+- [ ] Configurar lab básico (Kali + targets)
+- [ ] Começar CompTIA Security+ study
+
+### Este Trimestre
+
+- [ ] Completar Fase 1
+- [ ] Iniciar Fase 2
+- 
